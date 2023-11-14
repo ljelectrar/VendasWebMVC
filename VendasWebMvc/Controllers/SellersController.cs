@@ -12,17 +12,17 @@ namespace VendasWebMvc.Controllers
     public class SellersController : Controller
     {
 
-        private readonly SellerService _sellerservice;
+        private readonly SellerService _sellerService;
         private readonly DepartmentService _departmentService;
 
         public SellersController(SellerService sellerService, DepartmentService departmentService)
         {
-            _sellerservice = sellerService;
+            _sellerService = sellerService;
             _departmentService = departmentService;
         }
         public IActionResult Index()
         {
-            var list = _sellerservice.FindAll();
+            var list = _sellerService.FindAll();
             return View(list);
         }
 
@@ -37,7 +37,7 @@ namespace VendasWebMvc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Seller seller)
         {
-            _sellerservice.Insert(seller);
+            _sellerService.Insert(seller);
             return RedirectToAction(nameof(Index));
         }
 
@@ -48,7 +48,7 @@ namespace VendasWebMvc.Controllers
                 return NotFound();
             }
 
-            var obj = _sellerservice.FindById(id.Value);
+            var obj = _sellerService.FindById(id.Value);
             if (obj == null)
             {
                 return NotFound();
@@ -59,9 +59,24 @@ namespace VendasWebMvc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            _sellerservice.Remove(id);
+            _sellerService.Remove(id);
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _sellerService.FindById(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
     }
 }
