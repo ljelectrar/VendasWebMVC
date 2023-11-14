@@ -30,14 +30,14 @@ namespace VendasWebMvc.Data
             Department d3 = new Department(3, "Fashion");
             Department d4 = new Department(4, "Books");
 
-            Seller s1 = new Seller(1, "Chuck Norris", "chucknorris@gmail.com", new DateTime(1989, 11,2), 1000.0, d1);
-            Seller s2 = new Seller(2, "Caio Castro", "caiocastro@gmail.com", new DateTime(1993, 12, 5), 1000.0, d2);
-            Seller s3 = new Seller(3, "Leonardo di Caprio", "leonardodicaprio@gmail.com", new DateTime(1995, 4, 5), 1000.0, d1);
-            Seller s4 = new Seller(4, "Brad Pitt", "bradpitt@gmail.com", new DateTime(1995, 4, 5), 1000.0, d3);
-            Seller s5 = new Seller(5, "Johnny Depp", "johnnydepp@gmail.com", new DateTime(1995, 9, 31), 1000.0, d4);
-            Seller s6 = new Seller(6, "Van Halen", "vanhalen@gmail.com", new DateTime(1991, 1, 1), 1000.0, d4);
+            Seller s1 = new Seller(1, "Bob Brown", "bob@gmail.com", new DateTime(1998, 4, 21), 1000.0, d1);
+            Seller s2 = new Seller(2, "Maria Green", "maria@gmail.com", new DateTime(1979, 12, 31), 3500.0, d2);
+            Seller s3 = new Seller(3, "Alex Grey", "alex@gmail.com", new DateTime(1988, 1, 15), 2200.0, d1);
+            Seller s4 = new Seller(4, "Martha Red", "martha@gmail.com", new DateTime(1993, 11, 30), 3000.0, d4);
+            Seller s5 = new Seller(5, "Donald Blue", "donald@gmail.com", new DateTime(2000, 1, 9), 4000.0, d3);
+            Seller s6 = new Seller(6, "Alex Pink", "bob@gmail.com", new DateTime(1997, 3, 4), 3000.0, d2);
 
-            SalesRecord r1 = new SalesRecord(1, new DateTime(2019, 10, 25), 11500.50, SaleStatus.Billed, s1);
+            SalesRecord r1 = new SalesRecord(1, new DateTime(2018, 09, 25), 11000.0, SaleStatus.Billed, s1);
             SalesRecord r2 = new SalesRecord(2, new DateTime(2018, 09, 4), 7000.0, SaleStatus.Billed, s5);
             SalesRecord r3 = new SalesRecord(3, new DateTime(2018, 09, 13), 4000.0, SaleStatus.Canceled, s4);
             SalesRecord r4 = new SalesRecord(4, new DateTime(2018, 09, 1), 8000.0, SaleStatus.Billed, s1);
@@ -69,12 +69,14 @@ namespace VendasWebMvc.Data
             SalesRecord r30 = new SalesRecord(30, new DateTime(2018, 10, 12), 5000.0, SaleStatus.Billed, s2);
 
             _context.Department.AddRange(d1, d2, d3, d4);
+
             _context.Seller.AddRange(s1, s2, s3, s4, s5, s6);
+
             _context.SalesRecord.AddRange(
-                r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,
-                r11,r12,r13,r14,r15,r16,r17,r18,r19,r20,
-                r21,r22,r23,r24,r25,r26,r27,r28,r29,r30
-                );
+                r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
+                r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
+                r21, r22, r23, r24, r25, r26, r27, r28, r29, r30
+            );
 
             _context.SaveChanges();
 
