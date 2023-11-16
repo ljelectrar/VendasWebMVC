@@ -45,7 +45,7 @@ namespace VendasWebMvc.Services
         {
             if (!_context.Seller.Any(x => x.Id == obj.Id))
             {
-                throw new NotFoundException("Id não encontrada");
+                throw new AplicationException("Id não encontrada");
             }
             try
             {
